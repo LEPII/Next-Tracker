@@ -8,7 +8,24 @@ const bcrypt = require("bcrypt")
 
 const app = express() 
 
-app.listen(3001, () =>
+app.use(boddParser.json());
+app.use(boddParser.urlencoded({ extended: true }));
+app.use(expressSession({ secret: "mySecretKey", resave: false, saveUninitialized: false}))
+
+app.use(cors({
+    origin: "http://localhost:3000",
+    credentials: true
+}));
+
+app.use(cookieParser("mySecretKey"));
+app.use(passport.initialize());
+app.use(passport.session());
+
+app.get("/", (req, res) =>
 {
+    res.send("Howdy World")
+})
+
+app.listen(3001, () => {
     console.log("server is live")
 })

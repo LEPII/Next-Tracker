@@ -1,16 +1,41 @@
+"use client";
+
 import Link from "next/link";
 import { GiWeightLiftingUp } from "react-icons/gi";
 import { MdOutlineSpaceDashboard } from "react-icons/md";
+import { MdSpaceDashboard } from "react-icons/md";
 import { PiListHeart } from "react-icons/pi";
-import { ImStatsBars } from "react-icons/im";
-import { CgProfile } from "react-icons/cg";
+import { PiListHeartBold } from "react-icons/pi";
+import { IoStatsChartOutline } from "react-icons/io5";
+import { IoStatsChartSharp } from "react-icons/io5";
+import { FaRegCircleUser } from "react-icons/fa6";
+import { FaCircleUser } from "react-icons/fa6";
+import { usePathname } from "next/navigation";
 
 const Navbar = () => {
+  const currentPath = usePathname();
+
   const navLinks = [
-    { href: "/", icon: <MdOutlineSpaceDashboard className="text-2xl" /> },
-    { href: "/program", icon: <PiListHeart className="text-2xl" /> },
-    { href: "/stats", icon: <ImStatsBars className="text-2xl" /> },
-    { href: "/profile", icon: <CgProfile className="text-2xl" /> },
+    {
+      href: "/",
+      icon: <MdOutlineSpaceDashboard className="text-2xl" />,
+      activeIcon: <MdSpaceDashboard className="text-2xl" />,
+    },
+    {
+      href: "/program",
+      icon: <PiListHeart className="text-2xl" />,
+      activeIcon: <PiListHeartBold className="text-2xl" />,
+    },
+    {
+      href: "/stats",
+      icon: <IoStatsChartOutline className="text-2xl" />,
+      activeIcon: <IoStatsChartSharp className="text-2xl" />,
+    },
+    {
+      href: "/profile",
+      icon: <FaRegCircleUser className="text-2xl" />,
+      activeIcon: <FaCircleUser className="text-2xl" />,
+    },
   ];
 
   return (
@@ -21,7 +46,7 @@ const Navbar = () => {
       <ul className="flex space-x-12 m-auto">
         {navLinks.map((link) => (
           <Link key={link.href} href={link.href}>
-            {link.icon}
+            {currentPath === link.href ? link.activeIcon : link.icon}
           </Link>
         ))}
       </ul>
