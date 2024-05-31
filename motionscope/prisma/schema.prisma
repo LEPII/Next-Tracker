@@ -14,62 +14,48 @@ datasource db {
 }
 
 model User {
-  id        Int      @id @default(autoincrement())
-  email     String   @unique
-  password  String?
-  name      String?
-  role      Role     @default(Athlete)
-  programs  Program[]
+  id       Int       @id @default(autoincrement())
+  name     String
+  email    String    @unique
+  password String
+  role     Role      @default(ATHELTE)
+  programs Program[]
 }
 
 enum Role {
-  Athlete
-  Coach
+  ATHELTE
+  COACH
 }
 
 // Represents coach and block relationships
+//Blocker -  Need to Reference User/Coach at the same time
 model Program {
-  id          Int      @id @default(autoincrement())
-  name        String
-  coach       User     @relation(fields: [coachId], references: [id])
-  coachId     Int
-  block       Block?    @relation(fields: [blockId], references: [id])
-  blockId     Int?
-  exercises   Exercise[]
-  completed   Boolean @default(false)
+  id      Int    @id @default(autoincrement())
+  name    String
+  coach   User   @relation(fields: [coachId], references: [id])
+  coachId Int
+  blockId Int?
 }
 
 // Represent a training block
 model Block {
-  id          Int      @id @default(autoincrement())
-  name        String  
-  duration    Int     
-  frequency   Int      
-  athletes    User[]    @relation(fields: [athleteIds], references: [id])
-  athleteIds  Int[]
-  programs    Program[]  @relation(fields: [blockId], references: [id])
+  id          Int     @id @default(autoincrement())
+  name        String
+  date        String
+  weeks       Int
+  daysPerWeek Int
+  completed   Boolean @default(false)
 }
 
 // Represent the specific exercise
 model Exercise {
-  id          Int      @id @default(autoincrement())
-  day         Int?     
-  program     Program  @relation(fields: [programId], references: [id])
-  programId   Int
-  name        String
-  sets        Int
-  reps        Int
-  weight      Float? 
-}
-
-// Tracker model to track athlete progress
-model Tracker {
-  id          Int      @id @default(autoincrement())
-  athlete     User     @relation(fields: [athleteId], references: [id])
-  athleteId  Int
-  program     Program  @relation(fields: [programId], references: [id])
-  programId   Int
-  completedDate DateTime?
-  BlockTotal Int? // Total sets completed (optional)
-  notes       String? 
+  id             Int    @id @default(autoincrement())
+  name           String
+  sets           Int
+  reps           Int
+  weight         Float?
+  prescribedLoad Float?
+  prescribedRPE  Float?
+  actualLoad     Float?
+  actualRPE      Float?
 }
