@@ -26,7 +26,6 @@ enum Role {
   ATHELTE
   COACH
 }
-
 // Represents coach and block relationships
 //Blocker -  Need to Reference User/Coach at the same time
 model Program {
