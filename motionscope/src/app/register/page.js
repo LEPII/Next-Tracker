@@ -20,33 +20,33 @@ const Page = () => {
     role: "",
 
     // section 3 for coaches
-    coachExperience: null, // Added for coaches
-    coachReview: null,
+    coachExperience: null, 
+    
 
     // section 3 for athletes
-    height: null, // Added for athletes
-    weight: null, // Added for athletes
-    gymExperience: null, // Added for athletes
-    powerliftingExperience: null, // Added for athletes
-    competedBefore: false, // Added for athletes
-    bestSquatTraining: null, // Added for athletes
-    bestBenchTraining: null, // Added for athletes
-    bestDeadliftTraining: null, // Added for athletes
-    bestSquatComp: null, // Added for athletes
-    bestBenchComp: null, // Added for athletes
-    bestDeadliftComp: null, // Added for athletes
-    nextCompetition: "", // Added for athletes
-    trainingHistory: "", // Added for athletes
-    currentProgram: "", // Added for athletes
-    familiarRPE: false, // Added for athletes
-    proficientRPE: false, // Added for athletes
-    deadliftStance: "", // Added for athletes
-    liftingGoals: "", // Added for athletes
-    trainingDays: null, // Added for athletes
-    trainingAvailability: [], // Added for athletes (array for multiple days)
-    equipment: "", // Added for athletes
-    injuries: "", // Added for athletes
-    questions: "", // Added for athletes
+    height: null, 
+    weight: null, 
+    gymExperience: null, 
+    powerliftingExperience: null,
+    competedBefore: false, 
+    bestSquatTraining: null, 
+    bestBenchTraining: null, 
+    bestDeadliftTraining: null, 
+    bestSquatComp: null, 
+    bestBenchComp: null,
+    bestDeadliftComp: null,
+    nextCompetition: "", 
+    trainingHistory: "",
+    currentProgram: "", 
+    familiarRPE: false, 
+    proficientRPE: false, 
+    deadliftStance: "", 
+    liftingGoals: "", 
+    trainingDays: null, 
+    trainingAvailability: [],
+    equipment: "", 
+    injuries: "", 
+    questions: "",
   });
 
   const handleSubmit = (event) => {
@@ -65,7 +65,7 @@ const Page = () => {
       <input
         type="password"
         name="password"
-        placeholder="password "
+        placeholder="password"
         onChange={(e) => setRegisterPassword(e.target.value)}></input>
       <button> Register </button>
       <div>
