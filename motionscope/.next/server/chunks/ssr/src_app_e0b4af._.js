@@ -150,7 +150,11 @@ __turbopack_esm__({
 });
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$navigation$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_import__("[project]/node_modules/next/navigation.js [app-ssr] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$future$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_import__("[project]/node_modules/next/dist/server/future/route-modules/app-page/vendored/ssr/react.js [app-ssr] (ecmascript)");
-var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$formbricks$2f$js$2f$dist$2f$app$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_import__("[project]/node_modules/@formbricks/js/dist/app.js [app-ssr] (ecmascript)");
+(()=>{
+    const e = new Error("Cannot find module '@formbricks/js/app'");
+    e.code = 'MODULE_NOT_FOUND';
+    throw e;
+})();
 "__TURBOPACK__ecmascript__hoisting__location__";
 "use client";
 ;
@@ -161,7 +165,7 @@ function FormbricksProvider() {
     const searchParams = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$navigation$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useSearchParams"])();
     (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$future$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useEffect"])(()=>{
         if (window !== undefined) {
-            __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$formbricks$2f$js$2f$dist$2f$app$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["default"].init({
+            formbricks.init({
                 environmentId: "clwttk0z600xuihbufeb70j36",
                 apiHost: "https://app.formbricks.com",
                 userId: ""
@@ -171,7 +175,7 @@ function FormbricksProvider() {
         }
     }, []);
     (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$future$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useEffect"])(()=>{
-        __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$formbricks$2f$js$2f$dist$2f$app$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["default"]?.registerRouteChange();
+        formbricks?.registerRouteChange();
     }, [
         pathname,
         searchParams

@@ -3,7 +3,6 @@
 import React, { useState } from "react";
 
 const AthleteSection = ({ userInfo, handleChange }) => {
-  const [showSection2, setShowSection2] = useState(false);
   const [showSection3, setShowSection3] = useState(false);
 
   const handleToggleSearch = () => {
@@ -26,30 +25,51 @@ const AthleteSection = ({ userInfo, handleChange }) => {
   return (
     <div className="athlete-section">
       <h2>For Athletes</h2>
-      <label htmlFor="height">Height (cm):</label>
+      <label htmlFor="height">Height (feet) </label>
       <input
         type="number"
         id="height"
         name="height"
+        min="0"
+        max="8"
+        required
         value={userInfo.height}
         onChange={handleChange}
       />
-      <label htmlFor="weight">Current Body Weight (kg/lbs):</label>
+
+      <label htmlFor="weight">Current Body Weight (lbs):</label>
       <input
         type="number"
         id="weight"
         name="weight"
+        required
         value={userInfo.weight}
         onChange={handleChange}
       />
+
       <label htmlFor="gymExperience">Years of Gym Experience:</label>
       <input
         type="number"
         id="gymExperience"
         name="gymExperience"
+        min="0"
+        max="110"
+        required
         value={userInfo.gymExperience}
         onChange={handleChange}
       />
+
+      <label htmlFor="currentProgram">
+        Current Training Program ( sets, reps, load, frequency, etc ):
+      </label>
+      <input
+        type="text"
+        id="currentProgram"
+        name="currentProgram"
+        value={userInfo.currentProgram}
+        onChange={handleChange}
+      />
+
       <label htmlFor="powerliftingExperience">
         Years of Powerlifting Experience:
       </label>
@@ -57,9 +77,25 @@ const AthleteSection = ({ userInfo, handleChange }) => {
         type="number"
         id="powerliftingExperience"
         name="powerliftingExperience"
+        min="0"
+        max="80"
+        required
         value={userInfo.powerliftingExperience}
         onChange={handleChange}
       />
+
+      <label htmlFor="nextCompetition">
+        What are you plans for your next planed competition. If you don’t have
+        plans, write N/A:
+      </label>
+      <input
+        type="text"
+        id="nextCompetition"
+        name="nextCompetition"
+        value={userInfo.nextCompetition}
+        onChange={handleChange}
+      />
+
       <label htmlFor="competedBefore">
         Have you competed in powerlifting before?
       </label>
@@ -132,34 +168,13 @@ const AthleteSection = ({ userInfo, handleChange }) => {
         onChange={handleInputChange}
       />
 
-      <label htmlFor="nextCompetition">
-        What are you plans for your next planed competition. If you don’t have
-        plans, write N/A:
-      </label>
-      <input
-        type="text"
-        id="nextCompetition"
-        name="nextCompetition"
-        value={userInfo.nextCompetition}
-        onChange={handleChange}
-      />
-      <label htmlFor="trainingHistory">Brief Training History:</label>
+      <label htmlFor="liftingGoals">What are your lifting goals?</label>
       <textarea
-        id="trainingHistory"
-        name="trainingHistory"
-        value={userInfo.trainingHistory}
-        onChange={handleChange}
-        rows="4"
-      />
-      <label htmlFor="currentProgram">
-        Current Training Program ( sets, reps, load, frequency, etc ):
-      </label>
-      <input
-        type="text"
-        id="currentProgram"
-        name="currentProgram"
-        value={userInfo.currentProgram}
-        onChange={handleChange}
+        name="liftingGoals"
+        id="liftingGoals"
+        value={athleteInfo.liftingGoals}
+        onChange={handleInputChange}
+        required
       />
 
       <label htmlFor="deadliftStance">Deadlift Stance:</label>
@@ -167,19 +182,26 @@ const AthleteSection = ({ userInfo, handleChange }) => {
         name="deadliftStance"
         id="deadliftStance"
         value={athleteInfo.deadliftStance}
-        onChange={handleInputChange}>
+        onChange={handleInputChange}
+        required>
         <option value="">Select Stance</option>
         <option value="conventional">Conventional</option>
         <option value="sumo">Sumo</option>
       </select>
 
-      <label htmlFor="liftingGoals">What are your lifting goals?</label>
-      <textarea
-        name="liftingGoals"
-        id="liftingGoals"
-        value={athleteInfo.liftingGoals}
+      <label htmlFor="proficientRPE">
+        Are you familiar/proficient with RPE training?
+      </label>
+      <select
+        name="proficientRPE"
+        id="proficientRPE"
+        value={athleteInfo.proficientRPE}
         onChange={handleInputChange}
-      />
+        required>
+        <option value="">Select Option</option>
+        <option value="conventional">Yes</option>
+        <option value="sumo">No</option>
+      </select>
 
       <label htmlFor="trainingDays">
         How many days per week can you train?
@@ -188,9 +210,30 @@ const AthleteSection = ({ userInfo, handleChange }) => {
         type="number"
         name="trainingDays"
         id="trainingDays"
+        min="1"
+        max="7"
+        required
         value={athleteInfo.trainingDays}
         onChange={handleInputChange}
       />
+
+      <label htmlFor="trainingAvailability">
+        What days of the week are you available to train?
+      </label>
+      <select
+        id="trainingAvailability"
+        name="trainingAvailability"
+        value={formData.trainingAvailability}
+        onChange={handleChange}
+        multiple>
+        <option value="Monday">Monday</option>
+        <option value="Tuesday">Tuesday</option>
+        <option value="Wednesday">Wednesday</option>
+        <option value="Thursday">Thursday</option>
+        <option value="Friday">Friday</option>
+        <option value="Saturday">Saturday</option>
+        <option value="Sunday">Sunday</option>
+      </select>
 
       <label htmlFor="equipment">
         What equipment do you have available to you?
@@ -202,7 +245,7 @@ const AthleteSection = ({ userInfo, handleChange }) => {
         value={formData.equipment}
         onChange={handleChange}
       />
-      
+
       <label htmlFor="injuries">
         Do you have any current or previous injuries? If so, what are they?
       </label>

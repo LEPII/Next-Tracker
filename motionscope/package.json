@@ -10,7 +10,6 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@formbricks/js": "^2.0.1",
     "@prisma/client": "^5.14.0",
     "axios": "^1.6.8",
     "bcrypt": "^5.1.1",

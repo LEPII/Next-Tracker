@@ -12,6 +12,7 @@ const CoachSection = ({ userInfo, handleChange }) => {
         name="coachExperience"
         value={userInfo.coachExperience}
         onChange={handleChange}
+        required
       />
     </div>
   );
