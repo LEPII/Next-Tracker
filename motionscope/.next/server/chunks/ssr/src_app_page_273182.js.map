@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": [],
+  "sections": [
+    {"offset": {"line": 5, "column": 0}, "map": {"version":3,"sources":["/turbopack/[project]/src/app/page.js"],"sourcesContent":["\"use client\"\n\n\nexport default function Home() {\n  return (\n<div> hello world </div>\n  );\n}\n"],"names":[],"mappings":";;;;;AAAA;;AAGe,SAAS;IACtB,qBACF,wPAAC;kBAAI;;;;;;AAEL"}},
+    {"offset": {"line": 21, "column": 0}, "map": {"version":3,"sources":[],"names":[],"mappings":"A"}}]
+}
