@@ -20,7 +20,7 @@ const Page = () => {
         name="password"
         placeholder="password "
         onChange={(e) => setLoginPassword(e.target.value)}></input>
-      <Link href="/api/auth/login"> Login </Link>
+      <a href="/api/auth/login"> Login </a>
       <div>
         <p>Don&rsquo;t have an account?</p>
         <Link href="/register"> Register Here </Link>
